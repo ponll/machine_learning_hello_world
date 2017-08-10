@@ -8,7 +8,10 @@ compares with the actual result for the passenger and outputs a success rate - u
 http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
 
 The 'art' in supervised machine learning is adjusting the
-parameters and data features used to get the best success without over fitting.
+parameters and data features used to get the best success without over fitting. It is more complicated than it seems because not all data
+features are independent for eample age and passenger class (pclass) are related - first class passengers tend to older than 2nd class who are older than 3rd class
+The accompanying repo https://github.com/ponll/titanic_data_analysis includes a .txt file with some data analysis on passenger survivability
+
 
 this problem is a classification problem as every passenger fell into one of two categories - they survived or they died
 so the 3 machine learning techniques used below are classification techniques, they are also supervised
