@@ -1,19 +1,12 @@
 '''
-Machine learning attempts to build a data model based on features of the data, for example did the passenger
-have a first, second or third class ticket, was the passenger male or female and so on. The model can then
-be used to make predictions or classify a data point. In this case I'm using the Titanic passenger list, the list is divided
-into two parts - part one is the complete data including a binary field which indicates if the passenger survived or not. The
-second part has this field removed, each machine learning algorithm attempts to predict if the passengers in this list live or die then 
-compares with the actual result for the passenger and outputs a success rate - using the score method, see for example:
-http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+for a series of inputs x, there is an output y with the relationship y=f(x). Machine learning attempts to build a data model based 
+on features of the data, this statistical model g(x) is an approximation of f(x). In this case the output is a binary class - did
+the passenger survive or not. The inputs include features like: did the passenger have a first, second or third class ticket, was 
+the passenger male or female and so on. 
+Below I use the test-train split approach with three different algorithms. The 'art' in supervised machine learning is getting the
+best prediction accuracy without overfitting.
 
-The 'art' in supervised machine learning is adjusting the
-parameters and data features used to get the best success without over fitting. It is more complicated than it seems because not all data
-features are independent for eample age and passenger class (pclass) are related - first class passengers tend to older than 2nd class who are older than 3rd class
-The accompanying repo https://github.com/ponll/titanic_data_analysis includes a .txt file with some data analysis on passenger survivability
-
-
-this problem is a classification problem as every passenger fell into one of two categories - they survived or they died
+This problem is a classification problem as every passenger fell into one of two categories - they survived or they died
 so the 3 machine learning techniques used below are classification techniques, they are also supervised
 learning techniques which means we need to break the original data set into a training dataset and a test
 dataset. The difference between classification and regression:
@@ -26,7 +19,7 @@ Classification: the output variable takes class labels.
 The original data file is available from various sources, for example: http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.xls
 After downloading the file the only change I made was I converted it to a csv file.
 
-The script was written and tested using idle in python 2 but it should be compatible with both python 2 and 3
+The script was written and tested using idle in python 2. I wrote this before I discovered ipython/jupyter notebooks.
 '''
 
 #import the necessary libraries
@@ -49,6 +42,7 @@ df.embarked = le.fit_transform(df.embarked)
 a row from the original data looked like:
 pclass	survived	name	                sex	age	sibsp	parch	ticket	fare	        cabin	embarked	boat	body	home.dest
 1	1	Allen, Miss. Elisabeth Walton	female	29	0	0	24160	211.3375	B5	S	          2		St Louis, MO
+
 a typical row now looks like:
 pclass  survived  sex      age      sibsp  parch      fare      embarked
 1         1         0   29.0000      0      0       211.3375         2
